@@ -19,7 +19,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(expressSession({
-    secret: 'secret'
+    secret: 'secret@#',
+    resave:true,
+    saveUninitialized: true
 }))
 
 
@@ -43,5 +45,5 @@ app.put('/users/update', updateUsersController);
 mongoose.connect('mongodb://localhost/user_management',  { useNewUrlParser: true })
 
 app.listen(PORT, ()=>{
-    console.log(`You are listening to port 9000 ${PORT}`);
+    console.log(`You are listening to port  ${PORT}`);
 })
