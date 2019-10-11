@@ -4,6 +4,7 @@ const app = new express();
 const bodyParser = require('body-parser');
 const expressSession =  require('express-session');
 const jwt = require('jsonwebtoken');
+var PORT = process.env.PORT || 9000;
 
 const registerUserController = require('./controllers/registerUser');
 const loginUserController = require('./controllers/loginUser');
@@ -41,6 +42,6 @@ app.put('/users/update', updateUsersController);
 
 mongoose.connect('mongodb://localhost/user_management',  { useNewUrlParser: true })
 
-app.listen(9000, ()=>{
-    console.log('You are listening to port 9000')
+app.listen(PORT, ()=>{
+    console.log(`You are listening to port 9000 ${PORT}`);
 })
